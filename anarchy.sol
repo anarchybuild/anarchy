@@ -6,7 +6,7 @@ import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import "./ERC2981.sol";
 
-contract ApillonNFT is ERC721Enumerable, AccessControl, ERC2981 {
+contract AnarchyNFT is ERC721Enumerable, AccessControl, ERC2981 {
 
     bytes32 public constant CONTROLLER_ROLE = keccak256("CONTROLLER_ROLE");
 
