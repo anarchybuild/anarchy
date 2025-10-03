@@ -1,10 +1,27 @@
-# What is Anarchy? Anarchy is a platform designed to bring together individuals who build and create with AI. 
-We have observed a gap in the market - there is no clear all-in-one platform that provides the opportunity for creators to inspire and reward their community via the medium of building in public.
-anarchy offers this space, combining community-driven innovation with blockchain technology to create a platform where AI creators can flourish. 
+## Dependencies Overview
 
-[1](https://i.imgur.com/NTYMjN2.jpeg)
-[2](https://i.imgur.com/grjUeAn.jpeg)
+- **AI Layer (Pollinations.ai)**  
+  The app uses the [Pollinations.ai API](https://pollinations.ai/) to generate images from natural language prompts.  
+  - Input: user-provided text prompt  
+  - Output: AI-generated image URL  
+  - Usage: API is called directly from the backend to ensure rate-limit handling and consistent output  
 
-# How Does It Work?
+- **Authentication & Web3 Layer (Thirdweb)**  
+  The app leverages [Thirdweb Account Abstraction](https://thirdweb.com/account-abstraction) to provide social login.  
+  - Users can log in with familiar OAuth providers (Google, Twitter, etc.)  
+  - A smart wallet is automatically created and linked to the user’s account  
+  - Enables gasless transactions and Web3 interactions without exposing private key complexity  
 
-As part of this Hackathon, the Anarchy team have focussed on migrating contracts from their current location on Moonbase Alpha and deployed directly to Asset Hub. We currently had functionality enabled for the creation and upload of designs, with social auth login enabled by ReOwn Wallet. For the purposes of this hackathon, we decided to focus on a feature of adding tips against comments (on top of just the initial NFT).
+## Data Flow
+
+1. User logs in via **Thirdweb social login**  
+2. The system provisions an **account abstracted wallet** for the user  
+3. User submits a text prompt for image generation  
+4. The backend relays the request to **Pollinations.ai API**  
+5. The generated image is returned to the user and can be linked to their wallet/account  
+
+## Key Benefits
+
+- **Frictionless Onboarding:** No need for users to manage seed phrases or wallets manually  
+- **AI-Powered Creativity:** Dynamic images generated on demand via Pollinations.ai  
+- **Web3-Ready Accounts:** Users have smart wallets from the start, enabling on-chain integrations in future modules
